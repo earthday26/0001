@@ -19,37 +19,24 @@
       <a href="index.html" class="btn btn-sm btn-outline-secondary mb-4">กลับหน้าหลัก</a>
       <div class="row justify-content-center">
         <div class="col-lg-7">
-          <form class="needs-validation bg-white border rounded-3 p-4" novalidate aria-label="แบบฟอร์มส่งข้อมูล">
+          <form class="needs-validation bg-white border rounded-3 p-4" action="save_contact.php" method="post" novalidate aria-label="แบบฟอร์มส่งข้อมูล">
             <h1 class="h3 fw-bold mb-3">แบบฟอร์มสำหรับส่งข้อมูล</h1>
+            <div id="alertBox" class="alert d-none" role="alert"></div>
             <div class="row g-3">
-              <div class="col-md-6">
-                <label for="firstName" class="form-label">ชื่อ-นามสกุล</label>
-                <input id="firstName" name="name" class="form-control" autocomplete="name" required>
+              <div class="col-12">
+                <label for="fullName" class="form-label">ชื่อ-นามสกุล</label>
+                <input id="fullName" name="full_name" class="form-control" autocomplete="name" required>
                 <div class="invalid-feedback">กรุณากรอกชื่อ-นามสกุล</div>
               </div>
               <div class="col-md-6">
-                <label for="Address" class="form-label">ที่อยู่</label>
-                <input id="Address" name="address" class="form-control" autocomplete="street-address" required>
-                <div class="invalid-feedback">กรุณากรอกที่อยู่</div>
-              </div>
-              <div class="col-md-6">
-                <label for="Telephone" class="form-label">เบอร์โทรศัพท์</label>
-                <input id="Telephone" name="telephone" type="tel" class="form-control" autocomplete="tel" required>
+                <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+                <input id="phone" name="phone" type="tel" class="form-control" autocomplete="tel" required>
                 <div class="invalid-feedback">กรุณากรอกเบอร์โทรศัพท์</div>
               </div>
               <div class="col-md-6">
                 <label for="email" class="form-label">อีเมล</label>
                 <input id="email" name="email" type="email" class="form-control" autocomplete="email" required>
                 <div class="invalid-feedback">กรุณากรอกอีเมลให้ถูกต้อง</div>
-              </div>
-              <div class="col-12">
-                <label for="topic" class="form-label">หัวข้อ</label>
-                <select id="topic" name="topic" class="form-select" required>
-                  <option value="">เลือกหัวข้อ</option>
-                  <option>เว็บไซต์</option>
-                  <option>การฝึกอบรม</option>
-                </select>
-                <div class="invalid-feedback">กรุณาเลือกหัวข้อ</div>
               </div>
               <div class="col-12">
                 <label for="message" class="form-label">ข้อความ</label>
@@ -65,6 +52,17 @@
 
     <script>
       const form = document.querySelector('.needs-validation');
+      const alertBox = document.getElementById('alertBox');
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('success') === '1') {
+        alertBox.className = 'alert alert-success';
+        alertBox.textContent = 'บันทึกข้อมูลสำเร็จแล้ว';
+      } else if (params.get('error') === '1') {
+        alertBox.className = 'alert alert-danger';
+        alertBox.textContent = 'เกิดข้อผิดพลาดในการบันทึกข้อมูล';
+      }
+
       form.addEventListener('submit', (event) => {
         if (!form.checkValidity()) {
           event.preventDefault();

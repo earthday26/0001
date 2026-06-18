@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>วันที่และเวลา</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #eef7ff, #f8f5ff);
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .clock-card {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+    }
+    .time-text {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .globe-slider {
+      overflow: hidden;
+      padding: 0.75rem;
+      background: #f8fbff;
+    }
+    .slide-show {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+    .slide-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .slide-image.active {
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      .slide-show {
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center">
+  <main class="container py-5">
+    <section class="globe-slider mb-4">
+      <div class="slide-show">
+        <div class="slide-image active" style="background-image: url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=80');"></div>
+        <div class="slide-image" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1200&q=80');"></div>
+      </div>
+    </section>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-5">
+        <section class="clock-card p-4 text-center">
+          <p class="text-muted mb-2">ประเทศไทย</p>
+          <h1 class="h4 fw-bold mb-3">เวลาในประเทศไทย</h1>
+          <div id="thTime" class="time-text text-primary">--:--:--</div>
+          <p id="thDate" class="lead mb-0">วัน-----ที่ -- เดือน ------ พ.ศ. ----</p>
+        </section>
+      </div>
+      <div class="col-lg-5">
+        <section class="clock-card p-4 text-center">
+          <p class="text-muted mb-2">Los Angeles, USA</p>
+          <h1 class="h4 fw-bold mb-3">เวลาในลอสแอนเจลิส</h1>
+          <div id="laTime" class="time-text text-success">--:--:--</div>
+          <p id="laDate" class="lead mb-0">วัน-----ที่ -- เดือน ------ พ.ศ. ----</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function formatTime(date, timeZone) {
+      return new Intl.DateTimeFormat('th-TH', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        timeZone
+      }).format(date);
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const thaiNow = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' }));
+      const laNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+
+      const thDate = new Intl.DateTimeFormat('th-TH', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).format(thaiNow);
+
+      const laDate = new Intl.DateTimeFormat('en-US', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).format(laNow);
+
+      document.getElementById('thTime').textContent = formatTime(now, 'Asia/Bangkok');
+      document.getElementById('thDate').textContent = `วันที่ ${thDate}`;
+      document.getElementById('laTime').textContent = formatTime(now, 'America/Los_Angeles');
+      document.getElementById('laDate').textContent = `Date: ${laDate}`;
+    }
+
+    const slides = document.querySelectorAll('.slide-image');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      currentSlide = index;
+    }
+
+    function nextSlide() {
+      const nextIndex = (currentSlide + 1) % slides.length;
+      showSlide(nextIndex);
+    }
+
+    setInterval(nextSlide, 4000);
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
