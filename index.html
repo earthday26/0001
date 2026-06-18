@@ -250,6 +250,29 @@
             </div>
         </section>
 
+        <section class="py-5" aria-labelledby="chart-title">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-7">
+                        <div class="bg-white rounded p-4 shadow-sm h-100">
+                            <h2 id="chart-title" class="section-title mb-3">สถิติผู้รับบริการ</h2>
+                            <canvas id="serviceChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="bg-white rounded p-4 shadow-sm">
+                            <h3 class="fw-bold h4 mb-3">ข้อมูลตัวอย่าง</h3>
+                            <ul class="mb-0">
+                                <li>ผู้ป่วยนอก: 120 ราย</li>
+                                <li>ผู้ป่วยใน: 45 ราย</li>
+                                <li>นัดหมายออนไลน์: 30 ราย</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="py-5" aria-labelledby="contact-title">
             <div class="container">
                 <div class="row g-4">
@@ -297,5 +320,36 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+        const ctx = document.getElementById('serviceChart');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.'],
+                datasets: [
+                    {
+                        label: 'จำนวนผู้รับบริการ',
+                        data: [65, 59, 80, 81, 56, 95],
+                        backgroundColor: ['#1f5d3c', '#2f7d4d', '#4ea66d', '#79c08f', '#a9d8b4', '#d7f0dd'],
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
