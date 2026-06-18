@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="เว็บไซต์โรงพยาบาลจิตเวชสำหรับข้อมูลบริการการรักษา ข่าวประชาสัมพันธ์ และช่องทางติดต่อ">
+    <title>โรงพยาบาลจิตเวช</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3f8f4;
+            color: #183a2b;
+            line-height: 1.7;
+        }
+        a, button, input, select, textarea {
+            transition: box-shadow 0.2s ease;
+        }
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+            outline: 3px solid #0f766e;
+            outline-offset: 2px;
+        }
+        .top-bar {
+            background: #1f5d3c;
+            color: #eefbf2;
+            font-size: 0.9rem;
+        }
+        .navbar {
+            background: #f9fffb;
+            border-bottom: 1px solid #d4e8d8;
+        }
+        .nav-link {
+            color: #234d37 !important;
+            font-weight: 600;
+        }
+        .hero {
+            background: linear-gradient(90deg, #1f5d3c 0%, #3d8f5d 100%);
+            color: #f7fff9;
+        }
+        .hero-card {
+            background: rgba(247, 255, 249, 0.12);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+        }
+        .section-title {
+            color: #1f5d3c;
+            font-weight: 700;
+        }
+        .service-card {
+            border: 1px solid #d6e9d8;
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e5f5ea;
+            color: #1f5d3c;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .news-item {
+            border-left: 4px solid #2f7d4d;
+        }
+        .footer {
+            background: #143b27;
+            color: #eefbf2;
+        }
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: -3rem;
+            background: #0f172a;
+            color: #fff;
+            padding: 0.75rem 1rem;
+            z-index: 1100;
+            border-radius: 0.5rem;
+        }
+        .skip-link:focus {
+            top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">ข้ามไปยังเนื้อหาหลัก</a>
+
+    <div class="top-bar py-2">
+        <div class="container d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <span>โรงพยาบาลจิตเวช | สายด่วน 1667</span>
+            <span>วันอังคารที่ 17 มิถุนายน 2569</span>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top" aria-label="เมนูหลัก">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#main-content">
+                <div class="icon-circle" aria-hidden="true">RJ</div>
+                <div>
+                    <strong>โรงพยาบาลจิตเวช</strong><br>
+                    <small class="text-muted">จังหวัดกาญจนบุรี</small>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="เปิดเมนูหลัก">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#main-content">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">บริการของเรา</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">ข่าวสาร/กิจกรรม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#links">แหล่งข้อมูล</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">ติดต่อเรา</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="hero py-5" aria-labelledby="hero-title">
+            <div class="container py-4">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <p class="mb-2 text-light opacity-75">โรงพยาบาลจิตเวชจังหวัดกาญจนบุรี</p>
+                        <h1 id="hero-title" class="display-6 fw-bold mb-3">ดูแลสุขภาพจิตอย่างใกล้ชิดและเคารพศักดิ์ศรีของผู้ป่วย</h1>
+                        <p class="lead mb-4">ให้บริการตรวจวินิจฉัย บำบัดรักษา และให้คำปรึกษาเพื่อช่วยฟื้นฟูสุขภาพจิตและคุณภาพชีวิตของผู้รับบริการทุกคน</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="#services" class="btn btn-light text-dark fw-semibold">บริการของเรา</a>
+                            <a href="#contact" class="btn btn-outline-light">ขอรับคำปรึกษา</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="hero-card p-4">
+                            <h2 class="fw-bold mb-3 h5">ข้อมูลบริการในวันนี้</h2>
+                            <div class="d-flex align-items-end gap-2 mb-3">
+                                <span class="display-3 fw-bold">142</span>
+                                <span class="pb-2 text-light opacity-75">ราย</span>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="bg-white text-dark rounded p-3">
+                                        <small class="text-muted">รับการรักษา</small>
+                                        <h3 class="fw-bold mb-0 h4">86</h3>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="bg-white text-dark rounded p-3">
+                                        <small class="text-muted">นัดหมายวันนี้</small>
+                                        <h3 class="fw-bold mb-0 h4">56</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-5 bg-white" aria-labelledby="services-title">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <p class="text-uppercase small text-primary mb-1">บริการที่ให้ความสำคัญ</p>
+                    <h2 id="services-title" class="section-title">บริการของเรา</h2>
+                </div>
+                <div class="row g-4">
+                    <article class="col-md-6 col-lg-3">
+                        <div class="service-card p-4 h-100">
+                            <div class="icon-circle mb-3" aria-hidden="true">01</div>
+                            <h3 class="fw-bold h5">ตรวจวินิจฉัยและประเมินอาการ</h3>
+                            <p class="text-muted mb-0">ทีมแพทย์ผู้เชี่ยวชาญประเมินอาการและให้คำแนะนำในการดูแลรักษา</p>
+                        </div>
+                    </article>
+                    <article class="col-md-6 col-lg-3">
+                        <div class="service-card p-4 h-100">
+                            <div class="icon-circle mb-3" aria-hidden="true">02</div>
+                            <h3 class="fw-bold h5">ให้คำปรึกษาและบำบัด</h3>
+                            <p class="text-muted mb-0">บริการปรึกษาทางจิตวิทยาและการบำบัดเพื่อช่วยฟื้นฟูสุขภาพจิต</p>
+                        </div>
+                    </article>
+                    <article class="col-md-6 col-lg-3">
+                        <div class="service-card p-4 h-100">
+                            <div class="icon-circle mb-3" aria-hidden="true">03</div>
+                            <h3 class="fw-bold h5">บริการผู้ป่วยในและผู้ป่วยนอก</h3>
+                            <p class="text-muted mb-0">รองรับการรักษาแบบผู้ป่วยใน ผู้ป่วยนอก และการติดตามอาการต่อเนื่อง</p>
+                        </div>
+                    </article>
+                    <article class="col-md-6 col-lg-3">
+                        <div class="service-card p-4 h-100">
+                            <div class="icon-circle mb-3" aria-hidden="true">04</div>
+                            <h3 class="fw-bold h5">ให้ความรู้และป้องกัน</h3>
+                            <p class="text-muted mb-0">อบรมความรู้ด้านสุขภาพจิตสำหรับครอบครัวและชุมชน</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="py-5" aria-labelledby="news-title">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <h2 id="news-title" class="section-title mb-4">ข่าวสารและกิจกรรม</h2>
+                        <article class="news-item bg-white p-3 rounded mb-3">
+                            <small class="text-muted">17 มิถุนายน 2569</small>
+                            <h3 class="mt-2 h5">จัดกิจกรรมส่งเสริมสุขภาพจิตในชุมชน</h3>
+                            <p class="mb-0 text-muted">โรงพยาบาลจัดโครงการให้ความรู้เรื่องการจัดการความเครียดและการดูแลตนเอง</p>
+                        </article>
+                        <article class="news-item bg-white p-3 rounded mb-3">
+                            <small class="text-muted">15 มิถุนายน 2569</small>
+                            <h3 class="mt-2 h5">ประกาศปรับเปลี่ยนเวลาการให้บริการผู้ป่วยนอก</h3>
+                            <p class="mb-0 text-muted">กรุณาตรวจสอบกำหนดการล่วงหน้าเพื่อหลีกเลี่ยงความไม่สะดวกในการเดินทาง</p>
+                        </article>
+                        <article class="news-item bg-white p-3 rounded">
+                            <small class="text-muted">12 มิถุนายน 2569</small>
+                            <h3 class="mt-2 h5">อบรมเจ้าหน้าที่ด้านการดูแลผู้ป่วยทางจิตเวช</h3>
+                            <p class="mb-0 text-muted">เพื่อยกระดับคุณภาพการดูแลและการสื่อสารกับครอบครัวผู้ป่วย</p>
+                        </article>
+                    </div>
+                    <aside class="col-lg-4">
+                        <div class="bg-secondary text-white rounded p-4 h-100">
+                            <h3 class="fw-bold h4">ประกาศสำคัญ</h3>
+                            <ul class="list-unstyled mt-3 mb-0">
+                                <li class="mb-2">• ขอความร่วมมืองดใช้สารเสพติดก่อนเข้ารับบริการ</li>
+                                <li class="mb-2">• กรุณาเตรียมเอกสารประจำตัวและประวัติการรักษา</li>
+                                <li class="mb-2">• ติดต่อศูนย์ช่วยเหลือฉุกเฉิน โทร. 1667</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="links" class="py-5 bg-white" aria-labelledby="links-title">
+            <div class="container">
+                <h2 id="links-title" class="section-title mb-4">แหล่งข้อมูลที่เป็นประโยชน์</h2>
+                <div class="row g-3">
+                    <div class="col-sm-6 col-lg-3"><a href="#" class="btn btn-outline-secondary w-100">คู่มือการดูแลสุขภาพจิต</a></div>
+                    <div class="col-sm-6 col-lg-3"><a href="#" class="btn btn-outline-secondary w-100">ข้อมูลการรักษาและการนัดหมาย</a></div>
+                    <div class="col-sm-6 col-lg-3"><a href="#" class="btn btn-outline-secondary w-100">คำแนะนำสำหรับครอบครัว</a></div>
+                    <div class="col-sm-6 col-lg-3"><a href="#" class="btn btn-outline-secondary w-100">บทความสุขภาพจิต</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <h2 id="contact-title" class="section-title mb-3">ติดต่อเรา</h2>
+                        <p><strong>ที่อยู่:</strong> 123 หมู่ 5 ถนนสุขภาพจิต ตำบลทุ่งครุ อำเภอเมือง จังหวัดกาญจนบุรี 71000</p>
+                        <p><strong>โทรศัพท์:</strong> <a href="tel:034123456">034-123-456</a></p>
+                        <p><strong>โทรศัพท์ฉุกเฉิน:</strong> <a href="tel:1667">1667</a></p>
+                        <p><strong>อีเมล:</strong> <a href="mailto:contact@mentalhospital.go.th">contact@mentalhospital.go.th</a></p>
+                        <p><strong>เวลาทำการ:</strong> วันจันทร์–วันศุกร์ 08.30–16.30 น. และวันเสาร์ 09.00–12.00 น.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bg-white rounded p-4 shadow-sm">
+                            <h3 class="fw-bold mb-3 h4">ฝากข้อความเพื่อขอรับคำปรึกษา</h3>
+                            <form aria-label="ฟอร์มติดต่อโรงพยาบาลจิตเวช">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">ชื่อ-นามสกุล</label>
+                                    <input id="name" name="name" type="text" class="form-control" autocomplete="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">เบอร์โทรศัพท์</label>
+                                    <input id="phone" name="phone" type="tel" class="form-control" autocomplete="tel" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">อีเมล</label>
+                                    <input id="email" name="email" type="email" class="form-control" autocomplete="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">ข้อความ</label>
+                                    <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">ส่งข้อความ</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2569 โรงพยาบาลจิตเวชจังหวัดกาญจนบุรี. สงวนลิขสิทธิ์</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
